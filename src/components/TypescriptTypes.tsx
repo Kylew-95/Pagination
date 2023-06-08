@@ -10,10 +10,10 @@
 export const typeColors: { [key: string]: string } = {
   Normal: "gray",
   Fire: "red",
-  Water: "blue",
+  Water: "#26B7D4",
   Lightning: "#DFDA4F",
   Electric: "#DFDA4F",
-  Grass: "green",
+  Grass: "#A8F35C",
   Ice: "cyan",
   Fighting: "orange",
   Poison: "purple",
