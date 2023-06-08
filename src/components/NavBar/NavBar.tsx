@@ -10,8 +10,30 @@ import {
   ListItemText,
   useMediaQuery,
   Theme,
+  styled,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  height: "64px", // Adjust the height as per your requirement
+  [theme.breakpoints.down("sm")]: {
+    height: "90px", // Increase the height for mobile view
+  },
+}));
+
+const StyledMenuIcon = styled(MenuIcon)(({ theme }) => ({
+  fontSize: theme.spacing(3), // Adjust the size as per your requirement
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(6), // Increase the size for mobile view
+  },
+}));
+
+const StyledListItemText = styled(ListItemText)(({ theme }) => ({
+  fontSize: "rem", // Adjust the font size as per your requirement
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "2.6rem", // Increase the font size for mobile view
+  },
+}));
 
 function NavBar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -29,24 +51,7 @@ function NavBar() {
   );
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        backgroundColor: "rgba(255, 255, 255, 0.84)",
-        ...(isMobile && {
-          backgroundColor: "#FFFFFF",
-          "&.MuiAppBar-root": {
-            transform: "scale(1, 1)",
-            transition: "transform 0.3s ease",
-          },
-        }),
-        ...(!isMobile && {
-          "&.MuiAppBar-root": {
-            transform: "scale(1, 1.2)",
-          },
-        }),
-      }}
-    >
+    <StyledAppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           My App
@@ -59,7 +64,7 @@ function NavBar() {
               aria-label="menu"
               onClick={handleBurgerClick}
             >
-              <MenuIcon />
+              <StyledMenuIcon />
             </IconButton>
             <Drawer
               anchor="right"
@@ -67,33 +72,17 @@ function NavBar() {
               onClose={handleDrawerClose}
             >
               <List>
-                <ListItem
-                  button
-                  onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }}
-                >
-                  <ListItemText primary="Home" />
+                <ListItem button onClick={handleDrawerClose}>
+                  <StyledListItemText primary="Home" />
                 </ListItem>
-                <ListItem
-                  button
-                  onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }}
-                >
-                  <ListItemText primary="About" />
+                <ListItem button onClick={handleDrawerClose}>
+                  <StyledListItemText primary="About" />
                 </ListItem>
-                <ListItem
-                  button
-                  onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }}
-                >
-                  <ListItemText primary="Services" />
+                <ListItem button onClick={handleDrawerClose}>
+                  <StyledListItemText primary="Services" />
                 </ListItem>
-                <ListItem
-                  button
-                  onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }}
-                >
-                  <ListItemText primary="Contact" />
+                <ListItem button onClick={handleDrawerClose}>
+                  <StyledListItemText primary="Contact" />
                 </ListItem>
               </List>
             </Drawer>
@@ -115,7 +104,7 @@ function NavBar() {
           </List>
         )}
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 }
 
