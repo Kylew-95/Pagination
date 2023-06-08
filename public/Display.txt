@@ -1,0 +1,28 @@
+import { Datum } from "../TypescriptTypes";
+
+export type PokeDisplayProps = {
+  pokeData: { data: Datum[] } | null;
+};
+
+function PokeDisplay({ pokeData }: PokeDisplayProps) {
+  return (
+    <>
+      {pokeData ? (
+        <ul>
+          {pokeData.data.map((poksdata: Datum) => (
+            <li key={poksdata.id}>
+              <img src={poksdata.images.small} alt="" />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <>
+          <img src="/Loading/pokeball Loading.gif" alt="" />
+          <p>Guess Which Pokemon...</p>
+        </>
+      )}
+    </>
+  );
+}
+
+export default PokeDisplay;
