@@ -15,7 +15,7 @@ function CardPopup({ poksData, onClose }: CardPopupProps) {
       speechSynthesis.speak(utterance);
     }
   }
-
+  //
   function handlesUrl() {
     window.open(poksData?.tcgplayer?.url);
   }
