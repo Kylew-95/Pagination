@@ -47,12 +47,27 @@
   -webkit-backdrop-filter: blur(50%);
   z-index: 1;
 }
+.playbtn {
+  display: flex;
+  position: absolute;
+  left: 22rem;
+}
+
+.allbtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+}
 
 .close-button {
+  display: flex;
   position: absolute;
   border: none;
   bottom: 0;
-  right: 14rem;
+  height: 30px;
+  right: 20rem;
   padding: 0.5rem;
   cursor: pointer;
 }
