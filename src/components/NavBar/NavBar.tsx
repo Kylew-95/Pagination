@@ -31,7 +31,21 @@ function NavBar() {
   return (
     <AppBar
       position="fixed"
-      sx={{ backgroundColor: "rgba(255, 255, 255, 0.84)" }}
+      sx={{
+        backgroundColor: "rgba(255, 255, 255, 0.84)",
+        ...(isMobile && {
+          backgroundColor: "#FFFFFF",
+          "&.MuiAppBar-root": {
+            transform: "scale(1, 1)",
+            transition: "transform 0.3s ease",
+          },
+        }),
+        ...(!isMobile && {
+          "&.MuiAppBar-root": {
+            transform: "scale(1, 1.2)",
+          },
+        }),
+      }}
     >
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -56,28 +70,28 @@ function NavBar() {
                 <ListItem
                   button
                   onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }} // Add this style
+                  sx={{ cursor: "pointer" }}
                 >
                   <ListItemText primary="Home" />
                 </ListItem>
                 <ListItem
                   button
                   onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }} // Add this style
+                  sx={{ cursor: "pointer" }}
                 >
                   <ListItemText primary="About" />
                 </ListItem>
                 <ListItem
                   button
                   onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }} // Add this style
+                  sx={{ cursor: "pointer" }}
                 >
                   <ListItemText primary="Services" />
                 </ListItem>
                 <ListItem
                   button
                   onClick={handleDrawerClose}
-                  sx={{ cursor: "pointer" }} // Add this style
+                  sx={{ cursor: "pointer" }}
                 >
                   <ListItemText primary="Contact" />
                 </ListItem>
