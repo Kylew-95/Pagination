@@ -7,6 +7,18 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
+export const rareColors: { [key: string]: string } = {
+  Common: "gray",
+  Promo: "gold",
+  Rare: "blue",
+  RareHolo: "purple",
+  RareHoloEX: "red",
+  RareHoloGX: "green",
+  RareHoloV: "orange",
+  RareUltra: "black",
+  Uncommon: "teal",
+};
+
 export const typeColors: { [key: string]: string } = {
   Normal: "gray",
   Fire: "red",
@@ -44,6 +56,7 @@ export type Pokedex = {
 };
 
 export type Datum = {
+  rarities: any;
   id: string;
   name: string;
   supertype: Supertype;
@@ -61,7 +74,7 @@ export type Datum = {
   set: Set;
   number: string;
   artist: string;
-  rarity?: Rarity;
+  rarity?: Rarity | undefined;
   flavorText?: string;
   nationalPokedexNumbers: number[];
   legalities: Legalities;

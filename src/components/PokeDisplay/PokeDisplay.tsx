@@ -1,4 +1,4 @@
-import { Datum } from "../TypescriptTypes";
+import { Datum, rareColors } from "../TypescriptTypes";
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -68,6 +68,14 @@ function PokeDisplay({ pokeData }: PokeDisplayProps) {
                   >
                     {poksData.types[0]}
                   </span>
+                  <p
+                    id="rareColour"
+                    style={{
+                      color: poksData?.rarity && rareColors[poksData.rarity],
+                    }}
+                  >
+                    {poksData?.rarity}
+                  </p>
                 </p>
                 <div className="attContainer">
                   <h3>
