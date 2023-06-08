@@ -23,7 +23,7 @@ export const typeColors: { [key: string]: string } = {
   Bug: "lime",
   Rock: "sienna",
   Ghost: "indigo",
-  Dragon: "darkblue",
+  Dragon: "#d4af37",
   Dark: "darkgray",
   Steel: "silver",
   Fairy: "magenta",
