@@ -42,6 +42,14 @@
   margin-bottom: 1rem;
 }
 
+#rareColour {
+  font-weight: 600;
+  border: none 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #1b1b1b81;
+}
+
 #typeColour {
   font-weight: 600;
   border: none 1px solid;

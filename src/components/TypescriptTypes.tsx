@@ -11,7 +11,7 @@ export const rareColors: { [key: string]: string } = {
   Common: "gray",
   Promo: "gold",
   Rare: "blue",
-  RareHolo: "purple",
+  RareHolo: "green",
   RareHoloEX: "red",
   RareHoloGX: "green",
   RareHoloV: "orange",
