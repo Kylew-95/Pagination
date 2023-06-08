@@ -35,7 +35,10 @@ function NavBar() {
   );
 
   return (
-    <AppBar position="fixed">
+    <AppBar
+      position="fixed"
+      sx={{ backgroundColor: "rgba(255, 255, 255, 0.84)" }}
+    >
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           My App
@@ -56,16 +59,32 @@ function NavBar() {
               onClose={handleDrawerClose}
             >
               <List>
-                <ListItem onClick={handleDrawerClose}>
+                <ListItem
+                  button
+                  onClick={handleDrawerClose}
+                  sx={{ cursor: "pointer" }} // Add this style
+                >
                   <ListItemText primary="Home" />
                 </ListItem>
-                <ListItem onClick={handleDrawerClose}>
+                <ListItem
+                  button
+                  onClick={handleDrawerClose}
+                  sx={{ cursor: "pointer" }} // Add this style
+                >
                   <ListItemText primary="About" />
                 </ListItem>
-                <ListItem onClick={handleDrawerClose}>
+                <ListItem
+                  button
+                  onClick={handleDrawerClose}
+                  sx={{ cursor: "pointer" }} // Add this style
+                >
                   <ListItemText primary="Services" />
                 </ListItem>
-                <ListItem onClick={handleDrawerClose}>
+                <ListItem
+                  button
+                  onClick={handleDrawerClose}
+                  sx={{ cursor: "pointer" }} // Add this style
+                >
                   <ListItemText primary="Contact" />
                 </ListItem>
               </List>
@@ -73,16 +92,16 @@ function NavBar() {
           </>
         ) : (
           <List sx={{ display: "flex", alignItems: "center" }}>
-            <ListItem>
+            <ListItem button>
               <ListItemText primary="Home" />
             </ListItem>
-            <ListItem>
+            <ListItem button>
               <ListItemText primary="About" />
             </ListItem>
-            <ListItem>
+            <ListItem button>
               <ListItemText primary="Services" />
             </ListItem>
-            <ListItem>
+            <ListItem button>
               <ListItemText primary="Contact" />
             </ListItem>
           </List>
