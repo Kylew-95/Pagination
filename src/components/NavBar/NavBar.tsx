@@ -10,14 +10,8 @@ import {
   ListItemText,
   useMediaQuery,
   Theme,
-  createTheme,
-  ThemeProvider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-
-const theme = createTheme({
-  // Define your theme configuration here
-});
 
 function NavBar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
