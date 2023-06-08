@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FetchData from "../FetchedData/FetchedData";
 import PokeDisplay, { PokeDisplayProps } from "../PokeDisplay/PokeDisplay";
+import "./App.css";
 
 export default function App() {
   const [fetchedData, setFetchedData] =
@@ -24,7 +25,13 @@ export default function App() {
 
   return (
     <>
-      <PokeDisplay pokeData={fetchedData} />
+      <section className="homepage">
+        <img src="/Loading/pokemon title.png" alt="" />
+        <h2>Click on the card to find out more below</h2>
+      </section>
+      <section>
+        <PokeDisplay pokeData={fetchedData} />
+      </section>
     </>
   );
 }
