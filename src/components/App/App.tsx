@@ -1,7 +1,22 @@
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "@mui/material/styles";
 import FetchData from "../FetchedData/FetchedData";
 import PokeDisplay, { PokeDisplayProps } from "../PokeDisplay/PokeDisplay";
 import "./App.css";
+import NavBar from "../NavBar/NavBar";
+import { createTheme } from "@mui/material/styles";
+
+// Define your theme here
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#3f51b5",
+    },
+    secondary: {
+      main: "#f50057",
+    },
+  },
+});
 
 export default function App() {
   const [fetchedData, setFetchedData] =
@@ -24,7 +39,8 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <NavBar />
       <section className="homepage">
         <img src="/Loading/pokemon title.png" alt="" />
         <h2>Click on the card to find out more below</h2>
@@ -32,6 +48,6 @@ export default function App() {
       <section>
         <PokeDisplay pokeData={fetchedData} />
       </section>
-    </>
+    </ThemeProvider>
   );
 }

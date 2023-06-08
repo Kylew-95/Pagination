@@ -54,12 +54,14 @@ function PokeDisplay({ pokeData }: PokeDisplayProps) {
             {paginatedData.map((poksData: Datum) => (
               <li key={poksData.id}>
                 <h2 id="h2">{poksData.name}</h2>
-                <div
-                  id="card"
-                  className="menu__container"
-                  onClick={() => handleCardClick(poksData)}
-                >
-                  <img id="pokeImg" src={poksData.images.small} alt="" />
+                <div className="card_container">
+                  <div
+                    id="card"
+                    className="menu__container"
+                    onClick={() => handleCardClick(poksData)}
+                  >
+                    <img id="pokeImg" src={poksData.images.small} alt="" />
+                  </div>
                 </div>
                 <p id="Att">
                   <span

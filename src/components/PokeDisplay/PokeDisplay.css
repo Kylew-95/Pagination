@@ -104,6 +104,10 @@ li {
   margin-bottom: 1rem;
 }
 
+.card_container {
+  height: 300px;
+}
+
 #card.menu__container {
   width: 200px;
   height: 300px;
