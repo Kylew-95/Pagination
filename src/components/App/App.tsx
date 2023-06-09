@@ -31,7 +31,7 @@ export default function App() {
         <img src="/Loading/pokemon title.png" alt="" />
         <h2>Click on the card to find out more below</h2>
       </section>
-      <section>
+      <section className="mainContent">
         <PokeDisplay pokeData={fetchedData} />
       </section>
     </>

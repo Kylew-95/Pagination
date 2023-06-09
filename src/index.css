@@ -6,11 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(0, 0, 0);
-  background: url("/public/Loading/8635.jpg") no-repeat center center fixed;
+  /* background: url("/public/Loading/8635.jpg") no-repeat center center fixed;
+  display: flex;
   background-size: cover;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw; */
 }

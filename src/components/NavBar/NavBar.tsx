@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
@@ -11,7 +11,6 @@ function Navbar() {
 
   return (
     <nav id="nav">
-      <h3 className="logo">LOGO</h3>
       <div className="nav-container">
         <button className="nav-btn" onClick={showNavbar}>
           {isNavbarOpen ? (

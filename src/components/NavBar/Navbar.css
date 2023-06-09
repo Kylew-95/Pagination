@@ -1,11 +1,17 @@
 #nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
   padding: 0 2rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
+  margin-top: -2vh;
+  width: 96;
+}
+#nav .nav-link:hover {
+  color: #fd8b49;
 }
 
 #nav .header-nav a {
@@ -14,11 +20,13 @@
   text-decoration: none;
 }
 
-#nav .header-nav a:hover {
-  color: gray; /* Update the hover color as desired */
+#nav {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #nav .nav-btn {
+  display: flex;
   padding: 5px;
   cursor: pointer;
   background: transparent;
@@ -28,6 +36,7 @@
   visibility: hidden;
   opacity: 0;
   font-size: 1.8rem;
+  margin-right: auto; /* Move the icon to the left side */
 }
 
 #nav .header-nav-container,
@@ -36,10 +45,18 @@
   align-items: center;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
+  #nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -0.12px;
+  }
+
   #nav .nav-btn {
     visibility: visible;
     opacity: 1;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #nav .header-nav {
@@ -56,13 +73,14 @@
     justify-content: center;
     gap: 1.5rem;
     background-color: white;
-    transition: 1s;
-    transform: translateY(-100%); /* Start with the nav hidden */
+    transform: translateY(-100%);
+    visibility: hidden;
     z-index: -1; /* Add a negative z-index to hide the nav initially */
   }
 
   #nav .header-nav.responsive_nav {
-    transform: translateY(0); /* Show the nav when the class is added */
+    transform: translateY(0);
+    visibility: visible;
     z-index: 1; /* Increase the z-index to bring the nav above other elements */
   }
 

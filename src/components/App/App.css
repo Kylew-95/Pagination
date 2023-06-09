@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: url("/public/Loading/desktop-1920x1080.jpg") no-repeat center
     center fixed;
   background-size: cover;
@@ -15,4 +15,16 @@
   padding: 0 5%;
   box-sizing: border-box;
   overflow: auto;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: url("/public/Loading/8635.jpg") no-repeat center center fixed;
+  background-size: cover;
+  /* background-color: #282c34; */
 }
