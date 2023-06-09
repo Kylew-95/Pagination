@@ -24,13 +24,10 @@ function Navbar() {
             Home
           </a>
           <a href="/#" className="nav-link">
-            My work
+            Buy Cards
           </a>
           <a href="/#" className="nav-link">
-            Blog
-          </a>
-          <a href="/#" className="nav-link">
-            About me
+            Profile
           </a>
         </div>
       </div>
