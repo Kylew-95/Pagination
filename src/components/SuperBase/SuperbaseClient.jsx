@@ -23,14 +23,14 @@ export default function SuperbaseClient() {
   }, []);
 
   const login = async () => {
-    try {
-      await superbase.auth.signInWithOAuth({
-        provider: "google",
-      });
-    } catch (error) {
-      console.error("Error signing in:", error);
-    }
-  };
+   await supabase.auth.signInWithOAuth({
+          provider: 'github',
+          options: {
+            redirectTo: window.location.origin,
+            redirectTo: process.env.NEXTAUTH_URL,
+          },
+        });
+      },
 
   const logout = async () => {
     await superbase.auth.signOut();
