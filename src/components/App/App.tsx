@@ -36,7 +36,7 @@ export default function App() {
       <section className="mainContent">
         <PokeDisplay pokeData={fetchedData} />
       </section>
-
+      <footer>MADE BY KYLE</footer>
     </>
   );
 }

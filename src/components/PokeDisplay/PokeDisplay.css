@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  grid-gap: 1px;
+  grid-gap: 5vw;
   margin-top: 1rem;
   margin-left: 25rem;
   margin-right: 25rem;
