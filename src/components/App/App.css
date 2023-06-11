@@ -28,3 +28,7 @@
   background-size: cover;
   /* background-color: #282c34; */
 }
+
+footer{
+ position:fixed;
+}
