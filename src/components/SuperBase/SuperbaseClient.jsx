@@ -23,13 +23,10 @@ export default function SuperbaseClient() {
   }, []);
 
   const login = async () => {
-    try {
-      await superbase.auth.signInWithOAuth({
-        provider: "google",
-      });
-    } catch (error) {
-      console.error("Error signing in:", error);
-    }
+    await superbase.auth.signInWithOAuth({
+      provider: "google",
+      redirectTo: "http://localhost:3000/",
+    });
   };
 
   const logout = async () => {
