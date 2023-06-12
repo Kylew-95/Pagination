@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import SuperbaseClient from "../SuperBase/SuperbaseClient";
 import "./Navbar.css";
 
 function Navbar() {
+  const [users] = useState(null);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const showNavbar = () => {
@@ -11,6 +13,7 @@ function Navbar() {
 
   return (
     <nav id="nav">
+      <SuperbaseClient profile={users} />
       <div className="nav-container">
         <button className="nav-btn" onClick={showNavbar}>
           {isNavbarOpen ? (
@@ -27,7 +30,7 @@ function Navbar() {
             Buy Cards
           </a>
           <a href="/#" className="nav-link">
-            Profile
+            Profile {users}
           </a>
         </div>
       </div>

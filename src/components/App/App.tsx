@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import FetchData from "../FetchedData/FetchedData";
 import PokeDisplay, { PokeDisplayProps } from "../PokeDisplay/PokeDisplay";
 import NavBar from "../NavBar/NavBar";
-import SuperbaseClient from "../SuperBase/SuperbaseClient";
 import "./App.css";
 
 export default function App() {
@@ -28,7 +27,6 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <SuperbaseClient  />
       <section className="homepage">
         <img src="/Loading/pokemon title.png" alt="" />
         <h2>Click on the card to find out more below</h2>
@@ -36,7 +34,6 @@ export default function App() {
       <section className="mainContent">
         <PokeDisplay pokeData={fetchedData} />
       </section>
-      <footer>MADE BY KYLE</footer>
     </>
   );
 }

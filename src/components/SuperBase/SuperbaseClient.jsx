@@ -1,19 +1,24 @@
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import GoogleIcon from "../../images/Googleicon.png";
 
-export const superbase = createClient(
+export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_MYURL,
   process.env.REACT_APP_SUPABASE_MYKEY
 );
 
-export default function SuperbaseClient() {
+export default function SuperbaseClient({ profile }) {
   const [user, setUser] = useState(null);
+  const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const { user } = await superbase.auth.getSession();
-        setUser(user || null);
+        const { data, error } = await supabase.auth.getSession();
+        console.log(data, error);
+        const user = { data, error };
+        console.log("User:", user);
+        setUser(user);
       } catch (error) {
         console.error("Error fetching session:", error);
       }
@@ -22,26 +27,71 @@ export default function SuperbaseClient() {
     fetchSession();
   }, []);
 
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("users")
+          .select("*, profile(*)")
+          .eq("id", user?.id)
+          .single();
+
+        console.log("Profile Data:", data, error);
+        setProfileData(data?.profile);
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    if (user) {
+      fetchProfileData();
+    }
+  }, [user]);
+
   const login = async () => {
-    await superbase.auth.signInWithOAuth({
-      provider: "google",
-      redirectTo: "http://localhost:3000/",
-    });
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        redirectTo: "http://localhost:3000/userprofile",
+      });
+      console.log("Login data:", data);
+      console.error("Login error:", error);
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      console.log("User:", user);
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
   };
 
   const logout = async () => {
-    await superbase.auth.signOut();
+    try {
+      await supabase.auth.signOut();
+      console.log("Logged out successfully");
+      setUser(null);
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   };
 
   return (
     <>
       {user ? (
         <div>
-          <h1>USER PROFILE</h1>
+          <h3>WELCOME BACK {profileData?.username}</h3>
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
-        <button onClick={login}>Login With Google</button>
+        <>
+          <img
+            src={GoogleIcon}
+            alt="icon"
+            onClick={login}
+            style={{ width: "50px", height: "50px" }}
+          />
+          <p>Sign in with Google</p>
+        </>
       )}
     </>
   );
