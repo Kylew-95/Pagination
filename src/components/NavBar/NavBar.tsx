@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SuperbaseClient from "../SuperBase/SuperbaseClient";
+import { Link } from "react-router-dom";
+
 import "./Navbar.css";
 
 function Navbar() {
@@ -13,7 +15,6 @@ function Navbar() {
 
   return (
     <nav id="nav">
-      <SuperbaseClient profile={users} />
       <div className="nav-container">
         <button className="nav-btn" onClick={showNavbar}>
           {isNavbarOpen ? (
@@ -23,15 +24,16 @@ function Navbar() {
           )}
         </button>
         <div className={`header-nav ${isNavbarOpen ? "responsive_nav" : ""}`}>
-          <a href="/#" className="nav-link">
+          <SuperbaseClient profile={users} />
+          <Link to="/" className="nav-link">
             Home
-          </a>
-          <a href="/#" className="nav-link">
+          </Link>
+          <Link to="/buycards" className="nav-link">
             Buy Cards
-          </a>
-          <a href="/#" className="nav-link">
-            Profile {users}
-          </a>
+          </Link>
+          <Link to="/profile" className="nav-link">
+            Profile
+          </Link>
         </div>
       </div>
     </nav>

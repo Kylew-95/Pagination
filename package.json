@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-paginate": "^8.2.0",
+    "react-router-dom": "^6.12.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.11",
     "swiper": "^9.3.2",
@@ -56,6 +57,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/react-router-dom": "^5.3.3"
   }
 }

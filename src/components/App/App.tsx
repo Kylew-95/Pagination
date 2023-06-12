@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 import FetchData from "../FetchedData/FetchedData";
 import PokeDisplay, { PokeDisplayProps } from "../PokeDisplay/PokeDisplay";
 import NavBar from "../NavBar/NavBar";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Profile from "../Pages/Profile";
 
 export default function App() {
   const [fetchedData, setFetchedData] =
@@ -25,15 +27,25 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <NavBar />
-      <section className="homepage">
-        <img src="/Loading/pokemon title.png" alt="" />
-        <h2>Click on the card to find out more below</h2>
-      </section>
-      <section className="mainContent">
-        <PokeDisplay pokeData={fetchedData} />
-      </section>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <section className="homepage">
+                <img src="/Loading/pokemon title.png" alt="" />
+                <h2>Click on the card to find out more below</h2>
+              </section>
+              <section className="mainContent">
+                <PokeDisplay pokeData={fetchedData} />
+              </section>
+            </>
+          }
+        />
+        <Route path="/Profile" element={<Profile />} />
+      </Routes>
+    </Router>
   );
 }

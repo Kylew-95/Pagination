@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-import GoogleIcon from "../../images/Googleicon.png";
+import GoogleIcon from "../../Images/Googleicon.png";
 
 export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_MYURL,
@@ -79,7 +79,7 @@ export default function SuperbaseClient({ profile }) {
     <>
       {user ? (
         <div>
-          <h3>WELCOME BACK {profileData?.username}</h3>
+          <h3>WELCOME BACK {user?.data?.session?.full_name}</h3>
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
@@ -89,7 +89,7 @@ export default function SuperbaseClient({ profile }) {
             src={GoogleIcon}
             alt="icon"
             onClick={login}
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "20px", height: "20px" }}
           />
           <p>Sign in with Google</p>
         </>
