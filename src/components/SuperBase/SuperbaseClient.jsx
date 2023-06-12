@@ -65,22 +65,11 @@ export default function SuperbaseClient({ profile }) {
     }
   };
 
-  const logout = async () => {
-    try {
-      await supabase.auth.signOut();
-      console.log("Logged out successfully");
-      setUser(null);
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
-
   return (
     <>
       {user ? (
         <div>
           <h3>WELCOME BACK {user?.data?.session?.full_name}</h3>
-          <button onClick={logout}>Logout</button>
         </div>
       ) : (
         <>
