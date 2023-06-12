@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-import GoogleIcon from "../../Images/Googleicon.png";
+import GoogleIcon from "../Images/Googleicon.png";
 
 export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_MYURL,
