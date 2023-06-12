@@ -152,3 +152,12 @@ li {
     margin-top: 2vh;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .pokeGrid {
+    grid-template-columns: 1fr; /* Display a single column */
+    grid-gap: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

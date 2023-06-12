@@ -52,7 +52,7 @@ export default function SuperbaseClient({ profile }) {
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        redirectTo: "http://localhost:3000/userprofile",
+        redirectTo: "https://main--mypokepagination.netlify.app/userprofile",
       });
       console.log("Login data:", data);
       console.error("Login error:", error);
@@ -85,6 +85,7 @@ export default function SuperbaseClient({ profile }) {
       ) : (
         <>
           <img
+            className="googleIcon"
             src={GoogleIcon}
             alt="icon"
             onClick={login}
