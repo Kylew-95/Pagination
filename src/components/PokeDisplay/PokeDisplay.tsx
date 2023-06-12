@@ -13,7 +13,7 @@ export type PokeDisplayProps = {
 function PokeDisplay({ pokeData }: PokeDisplayProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCard, setSelectedCard] = useState<Datum | null>(null);
-  const itemsPerPage = 16; // Number of items to display per page
+  const itemsPerPage = 8; // Number of items to display per page
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
