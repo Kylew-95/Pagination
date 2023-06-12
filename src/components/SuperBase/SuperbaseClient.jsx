@@ -84,6 +84,7 @@ export default function SuperbaseClient({ profile }) {
         </div>
       ) : (
         <>
+          {/*  */}
           <img
             src={GoogleIcon}
             alt="icon"
