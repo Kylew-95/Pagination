@@ -153,11 +153,40 @@ li {
   }
 }
 
+@media only screen and (max-width: 1112px) {
+  .pokeGrid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+@media only screen and (max-width: 824px) {
+  .pokeGrid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .pokeGrid {
     grid-template-columns: 1fr; /* Display a single column */
     grid-gap: 2rem;
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+}
+@media only screen and (max-width: 325px) {
+  .pokeGrid {
+    grid-template-columns: 1fr; /* Display a single column */
+    grid-gap: 2rem;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #pokwImg {
+    height: 50px;
+    width: 50px;
   }
 }

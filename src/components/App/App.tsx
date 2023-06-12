@@ -35,7 +35,7 @@ export default function App() {
           element={
             <>
               <section className="homepage">
-                <img src="/Loading/pokemon title.png" alt="" />
+                <img id="pokemonTitle" src="/Loading/pokemon title.png" alt="" />
                 <h2>Click on the card to find out more below</h2>
               </section>
               <section className="mainContent">
@@ -46,6 +46,9 @@ export default function App() {
         />
         <Route path="/Profile" element={<Profile />} />
       </Routes>
+      <footer>
+        <p>Made by </p>
+      </footer>
     </Router>
   );
 }

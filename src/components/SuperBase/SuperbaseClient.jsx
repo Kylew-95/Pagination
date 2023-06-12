@@ -9,6 +9,7 @@ export const supabase = createClient(
 
 export default function SuperbaseClient({ profile }) {
   const [user, setUser] = useState(null);
+  // const [auth, setAuth] = useState(false);
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -49,28 +50,41 @@ export default function SuperbaseClient({ profile }) {
 
   const login = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        redirectTo: "https://main--mypokepagination.netlify.app/userprofile",
+        options: {
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent",
+            hd: "domain.com",
+          },
+        },
       });
-      console.log("Login data:", data);
-      console.error("Login error:", error);
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      console.log("User:", user);
+
+      if (error) {
+        console.error("Error signing in with Google:", error);
+      }
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error("Error signing in with Google:", error);
     }
   };
 
+  // const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+  //   if (event === "SIGNED_IN") {
+  //     setUser(session.user);
+  //     setAuth(true);
+  //   } else if (event === "SIGNED_OUT") {
+  //     setUser(data);
+  //     setAuth(false);
+  //   }
+  // });
+
   const logout = async () => {
     try {
-      await supabase.auth.signOut();
-      console.log("Logged out successfully");
-      setUser(null);
+      const { session, user } = await supabase.auth.signOut();
+      setUser(user, session);
     } catch (error) {
-      console.error("Error logging out:", error);
+      console.error("Error during logout:", error);
     }
   };
 

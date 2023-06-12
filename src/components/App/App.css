@@ -17,6 +17,11 @@
   overflow: auto;
 }
 
+section.mainContent {
+  position: relative;
+  margin-bottom: 12vh;
+}
+
 .mainContent {
   display: flex;
   flex-direction: column;
@@ -29,6 +34,33 @@
   /* background-color: #282c34; */
 }
 
-footer{
- position:fixed;
+footer {
+  position: fixed;
+  height: 12vh;
+}
+@media screen and (max-width: 910px) {
+  #pokemonTitle {
+    height: 40vh;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pokemonTitle {
+    height: 30vh;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 462px) {
+  #pokemonTitle {
+    height: 25vh;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #pokemonTitle {
+    height: 20vh;
+    width: 100%;
+  }
 }
