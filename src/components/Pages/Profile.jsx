@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const [setUser] = useState(null);
 
   const logout = async () => {
     try {
