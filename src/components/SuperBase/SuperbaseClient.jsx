@@ -9,7 +9,6 @@ export const supabase = createClient(
 
 export default function SuperbaseClient({ profile }) {
   const [user, setUser] = useState(null);
-  const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -27,26 +26,26 @@ export default function SuperbaseClient({ profile }) {
     fetchSession();
   }, []);
 
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("users")
-          .select("*, profile(*)")
-          .eq("id", user?.id)
-          .single();
+  // useEffect(() => {
+  //   const fetchProfileData = async () => {
+  //     try {
+  //       const { data, error } = await supabase
+  //         .from("users")
+  //         .select("*, profile(*)")
+  //         .eq("id", user?.id)
+  //         .single();
 
-        console.log("Profile Data:", data, error);
-        setProfileData(data?.profile);
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
+  //       console.log("Profile Data:", data, error);
+  //       setProfileData(data?.profile);
+  //     } catch (error) {
+  //       console.error("Error fetching profile data:", error);
+  //     }
+  //   };
 
-    if (user) {
-      fetchProfileData();
-    }
-  }, [user]);
+  //   if (user) {
+  //     fetchProfileData();
+  //   }
+  // }, [user]);
 
   const login = async () => {
     try {
@@ -65,11 +64,22 @@ export default function SuperbaseClient({ profile }) {
     }
   };
 
+  const logout = async () => {
+    try {
+      await supabase.auth.signOut();
+      console.log("Logged out successfully");
+      setUser(null);
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <>
       {user ? (
         <div>
           <h3>WELCOME BACK {user?.data?.session?.full_name}</h3>
+          <button onClick={logout}>Logout</button>
         </div>
       ) : (
         <>
