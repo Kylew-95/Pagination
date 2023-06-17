@@ -11,22 +11,23 @@ export default function SuperbaseClient({ profile }) {
   const [user, setUser] = useState(null);
   // const [auth, setAuth] = useState(false);
 
-  useEffect(() => {
-    const fetchSession = async () => {
-      try {
-        const { data, error } = await supabase.auth.getSession();
-        console.log(data, error);
-        const user = { data, error };
-        console.log("User:", user);
-        setUser(user);
-      } catch (error) {
-        console.error("Error fetching session:", error);
+useEffect(() => {
+  const fetchSession = async () => {
+    try {
+      const { data: session, error } = await supabase.auth.getSession();
+      if (error || !session) {
+        setUser(null);
+      } else {
+        setUser(session);
       }
-    };
+    } catch (error) {
+      console.error("Error fetching session:", error);
+    }
+  };
 
-    fetchSession();
-  }, []);
-
+  fetchSession();
+}, []);
+  
   // useEffect(() => {
   //   const fetchProfileData = async () => {
   //     try {
@@ -80,13 +81,13 @@ export default function SuperbaseClient({ profile }) {
   // });
 
   const logout = async () => {
-    try {
-      const { session, user } = await supabase.auth.signOut();
-      setUser(user, session);
-    } catch (error) {
-      console.error("Error during logout:", error);
-    }
-  };
+  try {
+    await supabase.auth.signOut();
+    setUser(null);
+  } catch (error) {
+    console.error("Error during logout:", error);
+  }
+};
 
 //   const authChange = supabase.auth.onAuthStateChange((event, session) => {
 //   console.log(event, session)
