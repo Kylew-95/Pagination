@@ -87,7 +87,15 @@ useEffect(() => {
   } catch (error) {
     console.error("Error during logout:", error);
   }
+     const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+  if (event === "SIGNED_IN") {
+    setUser(session.user);
+    setAuth(true);
+  } else if (event === "SIGNED_OUT") {
+    setUser(null);
+    setAuth(false);
 };
+  }
 
 //   const authChange = supabase.auth.onAuthStateChange((event, session) => {
 //   console.log(event, session)
