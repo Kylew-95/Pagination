@@ -80,12 +80,16 @@ useEffect(() => {
   //   }
   // });
 
-  const logout = async function signout() {
+  const logout = async function signOut() {
   const { error } = await supabase.auth.signOut()
-  if (!error) {
+  if (error) {
+    console.log(error)
+  } else {
     document.cookie = 'sb:token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    console.log('User has been signed out')
   }
 }
+
 
 //   const authChange = supabase.auth.onAuthStateChange((event, session) => {
 //   console.log(event, session)
