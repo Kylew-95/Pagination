@@ -80,22 +80,12 @@ useEffect(() => {
   //   }
   // });
 
-  const logout = async () => {
-  try {
-    await supabase.auth.signOut();
-    setUser(null);
-  } catch (error) {
-    console.error("Error during logout:", error);
+  const logout = async function signout() {
+  const { error } = await supabase.auth.signOut()
+  if (!error) {
+    document.cookie = 'sb:token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
   }
-     const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
-  if (event === "SIGNED_IN") {
-    setUser(session.user);
-    setAuth(true);
-  } else if (event === "SIGNED_OUT") {
-    setUser(null);
-    setAuth(false);
-};
-  }
+}
 
 //   const authChange = supabase.auth.onAuthStateChange((event, session) => {
 //   console.log(event, session)
