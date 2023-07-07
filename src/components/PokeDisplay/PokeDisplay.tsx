@@ -29,6 +29,14 @@ function PokeDisplay({ pokeData }: PokeDisplayProps) {
   // Get the slice of data to display on the current page
   const paginatedData = pokeData?.data.slice(startIndex, endIndex) || [];
 
+  // const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const searchQuery = event.target.value.toUpperCase();
+  //   const filteredData = pokeData?.data.filter((item) =>
+  //     item.name.toUpperCase().includes(searchQuery)
+  //   );
+  //   console.log(filteredData);
+  // };
+
   const handleCardClick = (pokeData: Datum) => {
     setSelectedCard(pokeData);
   };
@@ -39,6 +47,7 @@ function PokeDisplay({ pokeData }: PokeDisplayProps) {
 
   return (
     <>
+      {/* <input type="search" onInput={handleSearch} /> */}
       <CardPopup poksData={selectedCard} onClose={handleClosePopup} />
       {paginatedData.length > 0 ? (
         <>

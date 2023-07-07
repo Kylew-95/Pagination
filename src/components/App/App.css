@@ -19,7 +19,7 @@
 
 section.mainContent {
   position: relative;
-  margin-bottom: 12vh;
+  /* margin-bottom: 12vh; */
 }
 
 .mainContent {
@@ -34,10 +34,6 @@ section.mainContent {
   /* background-color: #282c34; */
 }
 
-footer {
-  position: fixed;
-  height: 12vh;
-}
 @media screen and (max-width: 910px) {
   #pokemonTitle {
     height: 40vh;
